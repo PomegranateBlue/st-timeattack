@@ -6,19 +6,20 @@ import {
   StyledButton,
   ButtonGroup,
 } from "../styles/StyledComponents";
-
-function StateControl({ onMessageChange }) {
+import { useDispatch } from "react-redux";
+import { setMessage } from "../redux/slices/messageSlice";
+function StateControl() {
   const [inputValue, setInputValue] = useState("");
-
+  const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
-    onMessageChange(inputValue);
+    dispatch(setMessage(inputValue));
     setInputValue("");
   };
 
   const handleReset = () => {
     setInputValue("");
-    onMessageChange("");
+    dispatch(setMessage(""));
   };
 
   return (
