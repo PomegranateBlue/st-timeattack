@@ -3,8 +3,10 @@ import {
   LevelContainer,
   MessageDisplayWrapper,
 } from "../styles/StyledComponents";
-
-function Level1({ message }) {
+import { useContext } from "react";
+import { MessageContext } from "../context/messageContext";
+function Level1() {
+  const { message } = useContext(MessageContext);
   return (
     <LevelContainer>
       <h3>Level 1</h3>
@@ -13,7 +15,8 @@ function Level1({ message }) {
   );
 }
 
-function Level2({ message }) {
+function Level2() {
+  const { message } = useContext(MessageContext);
   return (
     <LevelContainer>
       <h3>Level 2</h3>
@@ -22,7 +25,8 @@ function Level2({ message }) {
   );
 }
 
-function Level3({ message }) {
+function Level3() {
+  const { message } = useContext(MessageContext);
   return (
     <LevelContainer>
       <h3>Level 3</h3>
@@ -31,7 +35,8 @@ function Level3({ message }) {
   );
 }
 
-function MessageDisplay({ message }) {
+function MessageDisplay() {
+  const {message} = useContext(MessageContext);
   return (
     <MessageDisplayWrapper>
       <h3>메시지 표시 영역</h3>
