@@ -11,8 +11,11 @@ import { MessageContext } from "./context/messageContext";
 // prop drilling 브랜치
 function App() {
   const [message, setMessage] = useState("");
+  const onMessageChange = (newMessage) => {
+    setMessage(newMessage);
+  };
   return (
-    <MessageContext.Provider value={{ message, setMessage }}>
+    <MessageContext.Provider value={{ message, onMessageChange }}>
       <AppContainer>
         <h2>[내배캠] 스탠다드반 프로젝트 - Prop Drilling 예제</h2>
         <Content>

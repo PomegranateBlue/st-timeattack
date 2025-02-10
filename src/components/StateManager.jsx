@@ -9,16 +9,17 @@ import {
 import { MessageContext } from "../context/messageContext";
 function StateControl() {
   const [inputValue, setInputValue] = useState("");
-  const { setMessage } = useContext(MessageContext);
+  const { message, onMessageChange } = useContext(MessageContext);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    setMessage(inputValue);
+    onMessageChange(inputValue);
     setInputValue("");
   };
 
   const handleReset = () => {
     setInputValue("");
-    setMessage("");
+     onMessageChange("");
   };
 
   return (
